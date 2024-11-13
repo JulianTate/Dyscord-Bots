@@ -646,4 +646,8 @@ html, body {
   .section-1__right img {
     min-width: 300px;
   }
+  
+  .join-server {
+    margin-bottom: 50px;
+  }
 }
