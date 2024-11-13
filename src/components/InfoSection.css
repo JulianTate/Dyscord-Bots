@@ -1,0 +1,41 @@
+.section-1__info-section {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  
+  /* When the section is in view, the 'visible' class will trigger the animation */
+  .section-1__info-section.visible {
+    transform: translateX(0);
+    opacity: 1;
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .info-icon img {
+    height: 70px;
+    margin: 5px 0;
+  }
+  
+  .info-heading {
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+  }
+  
+  .info-text {
+    color: #c1c1c1;
+    margin: 20px 0;
+    font-size: 20px;
+  }
+  
