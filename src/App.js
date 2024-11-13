@@ -52,18 +52,18 @@ function App() {
           <div className="slider-slide">
             <p>EASY TO IMPLEMENT</p><p>•</p>
             <p>CUSTOM BUILT</p><p>•</p>
-            <p>DINGLEBERRY</p><p>•</p>
+            <p>AUTOMATED</p><p>•</p>
             <p>EASY TO IMPLEMENT</p><p>•</p>
             <p>CUSTOM BUILT</p><p>•</p>
-            <p>DINGLEBERRY</p><p>•</p>
+            <p>AUTOMATED</p><p>•</p>
           </div>
           <div className="slider-slide">
             <p>EASY TO IMPLEMENT</p><p>•</p>
             <p>CUSTOM BUILT</p><p>•</p>
-            <p>DINGLEBERRY</p><p>•</p>
+            <p>AUTOMATED</p><p>•</p>
             <p>EASY TO IMPLEMENT</p><p>•</p>
             <p>CUSTOM BUILT</p><p>•</p>
-            <p>DINGLEBERRY</p><p>•</p>
+            <p>AUTOMATED</p><p>•</p>
           </div>
         </div>
       </div>
