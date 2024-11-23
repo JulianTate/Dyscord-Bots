@@ -84,6 +84,7 @@ footer {
   background-color: black;
   padding: 10px 20px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 #section-1__contact:hover {
@@ -230,5 +231,17 @@ footer {
   .product-card {
     width: 90%;
     margin: 0 auto;
+  }
+  .section-1__nav-bar {
+    gap: 20px;
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .section-1__nav-bar {
+    gap: 10px;
+    width: 450px;
   }
 }

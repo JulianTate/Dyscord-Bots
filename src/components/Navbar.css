@@ -38,4 +38,5 @@
   .section-1__contact:hover::after {
     transform: translateX(5px); /* Arrow movement effect */
   }
+
   
