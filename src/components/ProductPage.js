@@ -26,7 +26,9 @@ function ProductsPage() {
                   Make your server visually stand out and attract more members.
                 </p>
               </div>
-              <button className="test">Test it out</button>
+              <a href="https://discord.gg/W8mHGcxsNs" target="_blank" rel="noopener noreferrer">
+                <button className="test">Test it out</button>
+              </a>
             </div>
 
             {/* Product 2: Custom Bot */}
@@ -42,7 +44,9 @@ function ProductsPage() {
                   tailored to your Discord server's needs.
                 </p>
               </div>
-              <button className="test">Test it out</button>
+              <a href="https://discord.gg/W8mHGcxsNs" target="_blank" rel="noopener noreferrer">
+                <button className="test">Test it out</button>
+              </a>
             </div>
 
             {/* Product 3: Bot Hosting */}
@@ -58,7 +62,9 @@ function ProductsPage() {
                   We ensure your bot stays online and ready for your community at all times.
                 </p>
               </div>
-              <button className="test">Test it out</button>
+              <a href="https://discord.gg/W8mHGcxsNs" target="_blank" rel="noopener noreferrer">
+                <button className="test">Test it out</button>
+              </a>
             </div>
 
             {/* Product 4: Server Setup */}
@@ -74,7 +80,26 @@ function ProductsPage() {
                   and automations. Perfect for communities, gaming, or businesses.
                 </p>
               </div>
-              <button className="test">Test it out</button>
+              <a href="https://discord.gg/W8mHGcxsNs" target="_blank" rel="noopener noreferrer">
+                <button className="test">Test it out</button>
+              </a>
+            </div>
+
+            {/* Product 5: Shopper */}
+            <div className="product-card">
+              <div className="product-image">
+                <img src="/images/shopper.png" alt="Discord Shopper" />
+              </div>
+              <div className="product-details">
+                <h3>Shopper Bot</h3>
+                <StarRating rating={5} /> {/* 5-star rating */}
+                <p>
+                  Streamline shopping in your server with our bot, allowing users to browse, compare, and purchase products directly within Discord.
+                </p>
+              </div>
+              <a href="https://discord.gg/W8mHGcxsNs" target="_blank" rel="noopener noreferrer">
+                <button className="test">Test it out</button>
+              </a>
             </div>
           </section>
         </div>

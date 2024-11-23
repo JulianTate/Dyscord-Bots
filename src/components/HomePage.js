@@ -130,6 +130,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
