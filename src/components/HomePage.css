@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  .section-1 {
+    background-color: #212121;
+    padding-top: 20px; /* Add small padding on top to create space between navbar and section */
+  }
+  
+  .section-1__main {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Distribute space between the two sections */
+    height: calc(100vh - 60px); /* Make the section height dynamic to fit within the viewport */
+  }
+  
+  
+  .section-1__left {
+    color: white;
+    padding: 0 100px;
+    flex: 1; /* Allow the left side to take up available space */
+  }
+  
+  .section-1__left h1 {
+    font-weight: 200;
+    font-size: 60px;
+  }
+  
+  .join-server {
+    padding: 15px 30px;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    animation: gradientMovement 5s ease infinite;
+  }
+  
+  @keyframes gradientMovement {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Hover effect */
+  .join-server:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Active (click) effect */
+  .join-server:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-1__left p {
+    font-weight: 100;
+    font-size: 20px;
+    padding: 20px 0;
+  }
+  
+  .section-1__right {
+    position: relative;
+    flex: 1; /* Take up available space */
+    height: 100%; /* Ensure the right side stretches to match the height of the section */
+    overflow: hidden; /* Prevent overflow from the image */
+  }
+  
+  .section-1__right img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the image */
+    right: -10%; /* Push the image to the right, so it extends off the screen */
+    max-height: 700px; /* Keep the height of the image consistent */
+    box-shadow: 0px 0px 40px 10px rgba(255, 255, 255, 0.7); /* White shadow with extra spread for visibility */
+    border-radius: 15px;
+  }
+  
+  .section-1__secondary-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .section-1__secondary{
+    max-width: 1100px;
+    padding: 50px;
+    padding-bottom: 150px;
+  }
+  
+  .section-1__secondary-text p{
+    font-size: 32px;
+    font-weight: bold;
+    color: #009DFF;
+    padding-bottom: 1vw;
+  }
+  
+  .section-1__secondary-text h1{
+    font-size: 49px;
+    font-weight: bold;
+    color: #ffffff;
+    padding-bottom: 1vw;
+  }
+  
+  /* Your existing styles */
+  .section-1__info-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+  }
+  
+  .info-icon img {
+    height: 70px;
+    margin: 5px 0;
+  }
+  
+  .info-heading {
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+    min-height: 115px;
+  }
+  
+  .info-text {
+    color: #c1c1c1;
+    margin: 20px 0;
+    font-size: 20px;
+  }
+  
+  #discord-img img {
+    max-width: 70px;
+    max-height: 50px;
+    padding: 10px 0;
+  }
+  
+  /* Animation styling */
+  .section-1__info-section {
+    opacity: 0;
+    transform: translateX(-100px); /* Start off-screen to the left */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+  }
+  
+  .section-1__info-section.in-view {
+    opacity: 1;
+    transform: translateX(0); /* Slide in to original position */
+  }
+  
+  
+  .slider {
+    display: flex;
+    padding: 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  
+  }
+  
+  .slider:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(33, 33, 33, 1), transparent);
+    content: "";
+    z-index: 2;
+  }
+  
+  .slider:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(33, 33, 33, 1), transparent);
+    content: "";
+    z-index: 2;
+  }
+  
+  .slider-slide {
+    display: flex;
+    animation: 35s slide infinite linear;
+  }
+  
+  .slider-slide p {
+    font-weight: lighter;
+    font-size: 2rem;
+    margin: 0 20px;
+    color: white;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .section-2 {
+    background: linear-gradient( #212121, #160432); /* Subtle gradient background */
+    position: relative; /* Enable positioning for the overlay */
+    width: 100%; /* Full width of the screen */
+  }
+  
+  .section-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M0%2C0%20L100%2C50%20L0%2C100%20Z%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.05%22%20/%3E%3Cpath%20d%3D%22M100%2C0%20L100%2C50%20L0%2C50%20Z%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.1%22%20/%3E%3C/svg%3E') repeat; /* Diagonal lines pattern */
+    opacity: 0.2; /* Set the opacity of the pattern */
+    pointer-events: none; /* Ensures the pattern doesn’t interfere with interaction */
+  }
+  
+  .section-2__container {
+    max-width: 1400px; /* Limit container to 1400px */
+    margin: 0 auto; /* Center container horizontally */
+    padding: 5vw 100px; /* Responsive padding */
+    display: flex;
+    flex-direction: column; /* Stack children in a column */
+    align-items: flex-start; /* Start-align children (e.g., header) */
+    position: relative; /* To ensure that any overlays or pseudo-elements stay in the background */
+  }
+  
+  .section-2__header {
+    max-width: 1000px;
+    position: relative;
+    z-index: 1; /* Ensure it is above the background overlay */
+  }
+  
+  .section-2__header h1 {
+    color: white;
+    font-size: 6vw;
+    margin-bottom: 50px;
+  }
+  
+  .section-2__header p {
+    color: rgb(212, 212, 212);
+    font-size: 1.2vw;
+    margin-bottom: 50px;
+  }
+  
+  .section-2__product-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 100px; /* Optional: Adds space between the columns */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .section-2__product-1__left {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+  }
+  
+  .section-2__product-1__left img {
+    width: 100%; /* Make the image responsive */
+    max-width: 100%; /* Ensures the image doesn't exceed the column */
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+  }
+  
+  .section-2__product-1__right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .section-2__product-1__right h1{
+    color: white;
+  }
+  
+  .section-2__product-1__right p{
+    color: rgb(212, 212, 212);
+  }
+  
+  .section-2__product-1__right p strong{
+    color: white;
+  }
+  
+  .section-2__product-1__right ul{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    color: rgb(212, 212, 212);
+    gap: 20px;
+  }
+  
+  .section-2__product-1__right ul strong{
+    color: white;
+  }
+  
+  .section-2__product-1__right ul strong:hover{
+    color: #ff7a00;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .section-2__product-container {
+    display: flex;
+    flex-direction: column;
+    gap: 9vw;
+    margin: 5vw 0;
+  }
+  
+  
+  @media (max-width: 1300px) {
+    .info-heading {
+      min-height: 0;
+    }
+  
+    .section-1__main {
+      flex-direction: column;
+      padding: 0 10vw;
+    }
+  
+    .section-1__left {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      justify-content: center; /* Center content vertically */
+      text-align: center; /* Center text within this section */
+      padding: 0; /* Remove padding to keep it centered */
+      height: 100vh; /* Make it take up full viewport height for vertical centering */
+      margin-top: 8vw;
+    }
+  
+    .section-1__right {
+      display: flex;
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      padding: 0 10vw;
+      max-height: 450px;
+      overflow: visible; /* Allow the image to be fully visible */
+    }
+  
+    .section-1__right img {
+      position: relative;
+      top: auto; /* Reset the top position */
+      right: auto; /* Reset the right position */
+      transform: none; /* Remove vertical centering transform */
+      max-width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      margin: 0; /* Remove side margins to keep the image fully responsive */
+      min-width: 400px;
+      box-shadow: 0px 0px 4vw 0.5vw rgba(255, 255, 255, 0.7); /* White shadow with extra spread for visibility */
+    }
+  
+    .section-2__container {
+      padding: 100px;
+    }
+  
+    .section-2__header h1 {
+      font-size: 5rem;
+    }
+  
+    .section-2__header p {
+      font-size: 1.3rem;
+    }
+  
+    .section-2__product-container {
+      margin: 0;
+      gap: 40px;
+    }
+    
+  }
+  
+  @media (max-width: 1200px) {
+    .section-2__product-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+  
+    .section-2__product-1__left {
+      order: -1;
+    }
+  
+    .section-2__product-1__right {
+      order: 1;
+    }
+  
+    .section-2__product-1__left img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .section-2__product-1__left img {
+      max-width: 700px;
+      margin: 60px 0;
+    }
+  }
+  
+  /* At 1000px, stack items vertically and keep default order */
+  @media (max-width: 1000px) {
+    .section-1__info-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+  
+    .section-2__product-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+  
+  }
+  
+  /* At 700px, single-column layout with centered alignment */
+  @media (max-width: 700px) {
+    .section-1__secondary {
+      max-width: 1100px;
+      padding:  50px;
+      padding-bottom: 100px;
+    }
+  
+    .section-1__info-sections {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+      text-align: center;
+    }
+  
+    .info-heading {
+      color: white;
+      margin: 5px 0;
+      font-size: 12px;
+    }
+  
+    .info-text {
+      color: #c1c1c1;
+      margin: 10px 0;
+      font-size: 20px;
+    }
+  
+    .section-1__secondary-text p {
+      font-size: 22px;
+      font-weight: bold;
+      color: #009DFF;
+      padding-bottom: 1vw;
+    }
+  
+    .section-1__secondary-text h1 {
+      font-size: 35px;
+      font-weight: bold;
+      color: #ffffff;
+      padding-bottom: 1vw;
+    }
+  
+    .info-icon img {
+      height: 70px;
+      margin: 15px 0;
+    }
+  
+    .section-2__container {
+      padding: 50px;
+    }
+  
+    .section-2__header h1 {
+      font-size: 4rem;
+    }
+  
+    .section-2__header p {
+      font-size: 1.4rem;
+      margin-bottom: 20px;;
+    }
+  
+    .section-2__product-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .section-2__product-container {
+      padding: 20px;
+    }
+  }
+  
+  /* Responsive adjustments for screens under 555px */
+  @media (max-width: 555px) {
+  
+    /* Adjust overall section padding and text alignment */
+    .section-1__nav-bar,
+    .section-1__main,
+    .section-1__secondary-container,
+    .section-2__container {
+      padding: 30px;
+      text-align: center;
+    }
+  
+    /* Stack main section content vertically */
+    .section-1__main {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    /* Center-align left section content and adjust font sizes */
+    .section-1__left {
+      padding: 0;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .section-1__left h1 {
+      font-size: 46px;
+    }
+    
+    .section-1__left p {
+      font-size: 16px;
+      padding: 10px 0;
+    }
+  
+    /* Make join-server button fit smaller screens */
+    .join-server {
+      margin: 0px 0;
+      padding: 15px 25px;
+      font-size: 20px;
+    }
+  
+    /* Center-align and resize image in the right section */
+    .section-1__right img {
+      max-width: 90%;
+      max-height: 300px;
+      margin: 20px auto;
+      right: auto;
+    }
+  
+    /* Adjust secondary section font sizes */
+    .section-1__secondary-text h1 {
+      font-size: 28px;
+    }
+  
+    .section-1__secondary-text p {
+      font-size: 18px;
+    }
+  
+    /* Stack info sections vertically */
+    .section-1__info-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    /* Info section font size and spacing adjustments */
+    .info-heading h2 {
+      font-size: 14px;
+    }
+  
+    .info-text p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  
+    /* Slider adjustments */
+    .slider {
+      padding: 10px 0;
+    }
+  
+    .slider-slide p {
+      font-size: 1.5rem;
+    }
+  
+    /* Adjust section 2 header font size */
+    .section-2__header h1 {
+      font-size: 5vw;
+    }
+  
+    .section-2__header p {
+      font-size: 3.5vw;
+    }
+  
+    /* Product section adjustments */
+    .section-2__product-1 {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .section-2__product-1__left img {
+      max-width: 90%;
+      margin: 20px 0;
+    }
+  
+    .section-2__product-1__right h1 {
+      font-size: 24px;
+    }
+  
+    .section-2__product-1__right p {
+      font-size: 16px;
+    }
+  
+    /* Product features list spacing */
+    .section-2__product-1__right ul {
+      padding-left: 0;
+      font-size: 14px;
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 455px) {
+    .section-1__right img {
+      min-width: 300px;
+    }
+    
+    .join-server {
+      margin-bottom: 50px;
+    }
+  }

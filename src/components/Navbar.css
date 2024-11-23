@@ -1,0 +1,41 @@
+.section-1__nav-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px 0px;
+    margin-bottom: 0; /* Adjust gap if necessary */
+    background-color: #212121;
+    cursor: pointer;
+  }
+  
+  .section-1__nav-link {
+    text-decoration: none;
+    margin-right: 50px;
+    color: white; /* Set color for all links to white */
+    font-size: 1.2rem; /* Set a base font size */
+    font-weight: normal; /* Ensure consistent weight */
+    transition: color 0.3s ease; /* Add transition for color change */
+  }
+  
+  #section-1__contact {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: white; /* Color of the text */
+    font-weight: normal;
+  }
+  
+  #section-1__contact::after {
+    content: "→"; /* The arrow content */
+    margin-left: 5px;
+    transition: transform 0.4s ease;
+  }
+  
+  .section-1__nav-link:hover,
+  #section-1__contact:hover {
+    color: #ff6347; /* Change text color when hovered, for all links including contact */
+  }
+  
+  .section-1__contact:hover::after {
+    transform: translateX(5px); /* Arrow movement effect */
+  }
+  

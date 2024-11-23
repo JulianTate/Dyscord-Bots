@@ -1,0 +1,234 @@
+/* Ensure the body takes up the full height of the viewport */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height for body and html */
+}
+
+/* Page container: flexbox layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #212121; 
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Main content should expand to take available space */
+.product-section {
+  flex: 1; /* Makes this section grow to fill space */
+  margin: 0 auto;
+  max-width: 1500px;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Footer styling */
+footer {
+  background-color: #2c2c2c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 100%; /* Full width */
+  position: relative; /* Ensures no issues with layout stacking */
+}
+
+/* Navbar Container */
+.section-1__nav-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #212121;
+}
+
+.section-1__nav-bar {
+  width: 600px; /* Adjust container width */
+  height: 60px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 30px; 
+  background-color: #d2d2d2;
+  position: sticky;
+  border-radius: 20px;
+}
+
+/* Navbar Links */
+.section-1__nav-link {
+  text-decoration: none;
+  color: #242424; /* Link color */
+  font-size: 1.2rem; /* Font size */
+  font-weight: normal; /* Regular font weight */
+  transition: color 0.3s ease; /* Smooth color transition */
+  cursor: pointer;
+  padding: 5px 10px; /* Padding for clickable area */
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.section-1__nav-link:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+#section-1__contact {
+  color: #242424;
+  font-weight: 500;
+}
+
+#section-1__discord {
+  color: white;
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+#section-1__contact:hover {
+  color: #000000;
+}
+
+#section-1__contact::after {
+  content: "→"; 
+  margin-left: 5px;
+  transition: transform 0.4s ease;
+}
+
+/* Hover Effect for Contact Link's Arrow */
+#section-1__contact:hover::after {
+  transform: translateX(5px); /* Move the arrow on hover */
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.top-bar-btn {
+  background-color: #ff6b6b;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-bar-btn:hover {
+  background-color: #ff4c4c;
+}
+
+/* Product Header */
+.product-header {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Product List (Grid Layout) */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Maximum of three products per row */
+  gap: 30px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.product-section h2 {
+  padding: 20px 0;
+}
+
+/* Product Card Styling */
+.product-card {
+  background-color: #2c2c2c;
+  width: 100%; /* Ensure cards take full grid space */
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  transition: 1s;
+}
+
+/* Image Styling */
+.product-image img {
+  width: 100%; /* Ensure full card width */
+  height: 200px; /* Consistent height */
+  object-fit: cover; /* Prevent overflow */
+}
+
+/* Product Details */
+.product-details {
+  padding: 15px;
+}
+
+.product-details h3 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  font-size: 1rem;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+/* Button Styling */
+.test {
+  padding: 10px 20px;
+  border: 2px solid white;
+  background-color: #2c2c2c;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.test:hover {
+  transform: translateY(-5px);
+  transition: 0.5s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.test:active {
+  transform: translateY(0px);
+  transition: 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* Two per row for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-header {
+    font-size: 2.5rem;
+  }
+
+  .product-list {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
