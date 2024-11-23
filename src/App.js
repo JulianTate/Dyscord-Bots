@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Modal from './components/Modal';
 import HomePage from './components/HomePage'; // Import HomePage component
 import ProductPage from './components/ProductPage'; // Import ProductPage component
