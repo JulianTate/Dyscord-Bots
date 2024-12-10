@@ -241,7 +241,34 @@ footer {
 @media (max-width: 500px) {
 
   .section-1__nav-bar {
-    gap: 10px;
-    width: 450px;
+    gap: 5px;
+    width: 87vw;
+    
   }
+
+  .section-1__nav-link {
+    font-size: 0.8rem;
+  }
+
+  #section-1__discord {
+    padding: 10px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .section-1__nav-bar {
+    gap: 0px;
+    
+  }
+
+  .section-1__nav-link {
+    font-size: 0.8rem;
+  }
+
+  #section-1__discord {
+    padding: 10px;
+  }
+
 }

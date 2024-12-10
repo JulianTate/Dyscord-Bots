@@ -507,6 +507,7 @@
     .section-2__container {
       padding: 30px;
       text-align: center;
+      margin: 0 20px;
     }
   
     /* Stack main section content vertically */
