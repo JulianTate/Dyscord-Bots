@@ -12,8 +12,8 @@ export default async function handler(req, res) {
     const { email } = req.body;  // Get the email address from the request body
 
     const data = {
-      from: 'newsletter@yourdomain.com',  // Your verified email address from Mailgun
-      to: 'recipient@example.com',        // The email where you want to receive notifications
+      from: 'postmaster@sandbox13e77da585994a3aad91c9cc8ed214a8.mailgun.org',  // Your verified email address from Mailgun
+      to: 'juliantatemartin@icloud.com',        // The email where you want to receive notifications
       subject: 'New Subscription',
       text: `A new user has subscribed with the email: ${email}`,
     };
