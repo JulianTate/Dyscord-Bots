@@ -1,8 +1,10 @@
 // /api/send-email.js
 import mailgun from 'mailgun-js';
 
-const DOMAIN = 'your-domain.com';  // Replace with your domain
-const API_KEY = 'your-mailgun-api-key';  // Replace with your Mailgun API key
+// Use environment variables to access your sensitive data
+const DOMAIN = process.env.MAILGUN_DOMAIN;  // Your Mailgun domain (from the environment variable)
+const API_KEY = process.env.MAILGUN_API_KEY;  // Your Mailgun API key (from the environment variable)
+
 const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
 
 export default async function handler(req, res) {
@@ -10,8 +12,8 @@ export default async function handler(req, res) {
     const { email } = req.body;  // Get the email address from the request body
 
     const data = {
-      from: 'your-email@your-domain.com', // Your verified email address in Mailgun
-      to: 'recipient@example.com',  // Email where you want to receive notifications
+      from: 'newsletter@yourdomain.com',  // Your verified email address from Mailgun
+      to: 'recipient@example.com',        // The email where you want to receive notifications
       subject: 'New Subscription',
       text: `A new user has subscribed with the email: ${email}`,
     };
