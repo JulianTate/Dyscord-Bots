@@ -1,4 +1,3 @@
-// /api/send-email.js
 import mailgun from 'mailgun-js';
 
 // Use environment variables to access your sensitive data
@@ -19,9 +18,14 @@ export default async function handler(req, res) {
     };
 
     try {
+      console.log("Attempting to send email with data:", data); // Log the email data
+
       const response = await mg.messages().send(data);
+      
+      console.log("Email sent successfully:", response); // Log the successful response
       return res.status(200).json({ message: 'Email sent successfully', response });
     } catch (error) {
+      console.error('Mailgun error:', error);  // Log the error for debugging
       return res.status(500).json({ message: 'Failed to send email', error: error.message });
     }
   } else {
