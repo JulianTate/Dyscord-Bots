@@ -30,9 +30,9 @@ const ModalNewsletter = ({ showModal, onClose, onSubscribe }) => {
       if (response.ok) {
         setIsSubscribed(true);
         setError('');
-        console.log('Email sent:', result);
+        console.log('Email subscribed:', result);
       } else {
-        setError('There was an issue sending the email.');
+        setError('There was an issue subscribing. Please try again.');
         console.error('Error:', result.error);
       }
     } catch (error) {

@@ -1,32 +1,41 @@
-import mailgun from 'mailgun-js';
+import fetch from 'node-fetch';
 
-// Use environment variables to access your sensitive data
-const DOMAIN = process.env.MAILGUN_DOMAIN;  // Your Mailgun domain (from the environment variable)
-const API_KEY = process.env.MAILGUN_API_KEY;  // Your Mailgun API key (from the environment variable)
+// Replace with your MailerLite API key
+const API_KEY = process.env.MAILERLITE_API_KEY;
+const MAILERLITE_API_URL = 'https://api.mailerlite.com/api/v2';
 
-const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
-
+// Create an API call to add a subscriber to a MailerLite list
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { email } = req.body;  // Get the email address from the request body
+    const { email } = req.body; // Get the email address from the request body
 
     const data = {
-      from: 'postmaster@sandbox13e77da585994a3aad91c9cc8ed214a8.mailgun.org',  // Your verified email address from Mailgun
-      to: 'juliantatemartin@icloud.com',        // The email where you want to receive notifications
-      subject: 'New Subscription',
-      text: `A new user has subscribed with the email: ${email}`,
+      email: email, // The email to be added
+      fields: {
+        name: 'Subscriber', // Optionally, you can add a name or any custom field
+      }
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-MailerLite-ApiKey': API_KEY,  // Pass the API key for authentication
+      },
+      body: JSON.stringify(data),
     };
 
     try {
-      console.log("Attempting to send email with data:", data); // Log the email data
+      const response = await fetch(`${MAILERLITE_API_URL}/subscribers`, options);
+      const result = await response.json();
 
-      const response = await mg.messages().send(data);
-      
-      console.log("Email sent successfully:", response); // Log the successful response
-      return res.status(200).json({ message: 'Email sent successfully', response });
+      if (response.ok) {
+        return res.status(200).json({ message: 'Subscription successful', result });
+      } else {
+        return res.status(500).json({ message: 'Failed to subscribe', error: result });
+      }
     } catch (error) {
-      console.error('Mailgun error:', error);  // Log the error for debugging
-      return res.status(500).json({ message: 'Failed to send email', error: error.message });
+      return res.status(500).json({ message: 'Failed to send request', error: error.message });
     }
   } else {
     return res.status(405).json({ message: 'Method Not Allowed' });

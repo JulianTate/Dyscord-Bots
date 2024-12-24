@@ -56,11 +56,11 @@ function App() {
       </Modal>
 
       {/* Newsletter Modal */}
-      <ModalNewsletter
+      {/*<ModalNewsletter
         showModal={showNewsletterModal}
         onClose={closeNewsletterModal}
         onSubscribe={handleSubscribe}
-      />
+      />*/}
     </div>
   );
 }
