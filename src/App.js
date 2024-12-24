@@ -1,20 +1,43 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
-import HomePage from './components/HomePage'; // Import HomePage component
-import ProductPage from './components/ProductPage'; // Import ProductPage component
+import ModalNewsletter from './components/modal-newsletter'; // Import Newsletter Modal
+import HomePage from './components/HomePage';
+import ProductPage from './components/ProductPage';
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
+
+  // Show the newsletter modal based on subscription or dismissal
+  useEffect(() => {
+    const hasSubscribed = localStorage.getItem('newsletterSubscribed');
+    const hasClosed = localStorage.getItem('newsletterClosed');
+    
+    if (!hasSubscribed && !hasClosed) {
+      setShowNewsletterModal(true);
+    }
+  }, []);
 
   const handleContactClick = () => {
-    setShowModal(true);
+    setShowContactModal(true); // Open contact modal
   };
 
-  const closeModal = () => {
-    setShowModal(false);
+  const closeContactModal = () => {
+    setShowContactModal(false); // Close contact modal
+  };
+
+  const closeNewsletterModal = () => {
+    setShowNewsletterModal(false);
+    localStorage.setItem('newsletterClosed', 'true'); // Mark as dismissed
+  };
+
+  const handleSubscribe = () => {
+    localStorage.setItem('newsletterSubscribed', 'true');
+    setShowNewsletterModal(false); // Close modal after subscribing
+    localStorage.removeItem('newsletterClosed'); // Ensure dismissal is cleared
   };
 
   return (
@@ -26,7 +49,18 @@ function App() {
         <Route path="/products" element={<ProductPage />} />
       </Routes>
       
-      <Modal showModal={showModal} onClose={closeModal} />
+      {/* Contact Modal */}
+      <Modal showModal={showContactModal} onClose={closeContactModal}>
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out to us anytime!</p>
+      </Modal>
+
+      {/* Newsletter Modal */}
+      <ModalNewsletter
+        showModal={showNewsletterModal}
+        onClose={closeNewsletterModal}
+        onSubscribe={handleSubscribe}
+      />
     </div>
   );
 }
